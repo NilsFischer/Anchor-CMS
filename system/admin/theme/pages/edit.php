@@ -10,14 +10,14 @@
     			<label for="name">Name:</label>
     			<input id="name" name="name" value="<?php echo Input::post('name', page_name()); ?>">
     			
-    			<em>The name of your page. This gets shown in the navigation.</em>
+    			<em>Ter Name deiner Seite. Er wird in der Navigationsleiste angezeigt.</em>
     		</p>
 			
 			<p>
-			    <label>Title:</label>
+			    <label>Titel:</label>
 			    <input id="title" name="title" value="<?php echo Input::post('title', page_title()); ?>">
 			    
-			    <em>The title of your page, which gets shown in the <code>&lt;title&gt;</code>.</em>
+			    <em>Der Titel der Seite, welcher im  <code>&lt;title&gt;</code> angezeigt wird.</em>
 			</p>
 			
 			<p>
@@ -28,23 +28,23 @@
 			</p>
 			
 			<p>
-			    <label for="content">Content:</label>
+			    <label for="content">Inhalt:</label>
 			    <textarea id="content" name="content"><?php echo Input::post('content', page_content()); ?></textarea>
 			    
-			    <em>Your page's content. Accepts valid HTML.</em>
+			    <em>YDer Inhalt der Seite. Gerne auch in HTML.</em>
 			</p>
 			
 			<p>
 			    <label>Status:</label>
     			<select id="status" name="status">
-    				<?php foreach(array('draft', 'archived', 'published') as $status): ?>
+    				<?php foreach(array('Vorlage', 'Archiviert', 'Publiziert') as $status): ?>
     				<option value="<?php echo $status; ?>"<?php if(Input::post('status', page_status()) == $status) echo 'selected'; ?>>
     					<?php echo ucwords($status); ?>
     				</option>
     				<?php endforeach; ?>
     			</select>
     			
-    			<em>Do you want your page to be live (published), pending (draft), or hidden (archived)?</em>
+    			<em>DWie möchtest du deine Seite speichern? Als Vorlage (Nicht fertig?), Archiviert (Fertig und peinlich) oder Publiziert (Fertig und anschaubar).</em>
 			</p>
 		</fieldset>
 			
@@ -52,12 +52,12 @@
 		    
 		    <input type="hidden" name="id" value="<?php echo page_id(); ?>">
 		
-			<button name="save" type="submit">Save</button>
+			<button name="save" type="submit">Speichern</button>
 			<?php if(page_id() != Config::get('metadata.show_posts')): ?>
-			<button name="delete" type="submit">Delete</button>
+			<button name="delete" type="submit">Löschen</button>
 			<?php endif; ?>
 			
-			<a href="<?php echo base_url('admin/pages'); ?>">Return to pages</a>
+			<a href="<?php echo base_url('admin/pages'); ?>">Zurück zur Seiten Seite</a>
 		</p>
 	</form>
 

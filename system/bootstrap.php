@@ -18,7 +18,7 @@ error_reporting(0);
 */
 if(version_compare(PHP_VERSION, '5.3.0', '<')) {
 	// echo and exit with some usful information
-	echo 'Anchor requires PHP 5.3 or newer, your current environment is running PHP ' . PHP_VERSION;
+	echo 'Anchor benötigt PHP 5.3 oder neuer, im Moment läuft bei dir PHP ' . PHP_VERSION;
 	exit(1);
 }
 

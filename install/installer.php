@@ -26,27 +26,27 @@ foreach($fields as $field) {
 }
 
 if(empty($post['db'])) {
-	$errors[] = 'Please specify a database name';
+	$errors[] = 'Bitte gib einen Datenbanknamen an';
 }
 
 if(empty($post['host'])) {
-	$errors[] = 'Please specify a database host';
+	$errors[] = 'Bitte gib einen Datenbankhost an';
 }
 
 if(empty($post['name'])) {
-	$errors[] = 'Please enter a site name';
+	$errors[] = 'Bitte gib einen Seitennamen ein';
 }
 
 if(empty($post['theme'])) {
-	$errors[] = 'Please select a theme';
+	$errors[] = 'Bitte wähle ein Theme aus';
 }
 
 if(filter_var($post['email'], FILTER_VALIDATE_EMAIL) === false) {
-	$errors[] = 'Please enter a valid email address';
+	$errors[] = 'Bitte gib eine valide Email-Adresse ein';
 }
 
 if(version_compare(PHP_VERSION, '5.3.0', '<')) {
-	$errors[] = 'Anchor requires PHP 5.3 or newer, your current environment is running PHP ' . PHP_VERSION;
+	$errors[] = 'Anchor benötigt PHP 5.3 oder neuer, bei dir läuft aktuell PHP ' . PHP_VERSION;
 }
 
 // test database
@@ -67,20 +67,20 @@ if(empty($errors)) {
 	$index_page = ($post['clean_urls'] === false ? 'index.php' : '');
 
 	$search = array(
-		"'host' => 'localhost'",
-		"'username' => 'root'",
-		"'password' => ''",
-		"'name' => 'anchorcms'",
+		"'Datenbankhost' => 'localhost'",
+		"'Benutzer' => 'root'",
+		"'Passwort' => ''",
+		"'Datenbankname' => 'anchorcms'",
 		
 		// apllication paths
 		"'base_url' => '/'",
 		"'index_page' => 'index.php'"
 	);
 	$replace = array(
-		"'host' => '" . $post['host'] . "'",
-		"'username' => '" . $post['user'] . "'",
-		"'password' => '" . $post['pass'] . "'",
-		"'name' => '" . $post['db'] . "'",
+		"'Datenbankhost' => '" . $post['host'] . "'",
+		"'Benutzer' => '" . $post['user'] . "'",
+		"'Passwort' => '" . $post['pass'] . "'",
+		"'Datenbankname' => '" . $post['db'] . "'",
 
 		// apllication paths
 		"'base_url' => '/" . $base_url . "'",
@@ -89,7 +89,7 @@ if(empty($errors)) {
 	$config = str_replace($search, $replace, $template);
 
 	if(file_put_contents('../config.php', $config) === false) {
-		$errors[] = 'Failed to create config file';
+		$errors[] = 'Konnte keine Konfigurationsdatei erstellen.';
 	}
 	
 	// if we have clean urls enabled let setup a 
@@ -99,7 +99,7 @@ if(empty($errors)) {
 		$htaccess = str_replace('# RewriteBase /', 'RewriteBase /' . $base_url, $htaccess);
 	
 		if(file_put_contents('../.htaccess', $htaccess) === false) {
-			$errors[] = 'Unable to create .htaccess file. Make to create one to enable clean urls.';
+			$errors[] = 'Konnte keine .htaccess-Datei erstellen. Tu das um saubere URLs zu erlauben.';
 		}
 	}
 }

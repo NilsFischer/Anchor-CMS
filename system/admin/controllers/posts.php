@@ -18,7 +18,7 @@ class Posts_controller {
 	public function edit($id) {
 		// find article
 		if(($article = Posts::find(array('id' => $id))) === false) {
-			Notifications::set('notice', 'Post not found');
+			Notifications::set('notice', 'Beitrag nicht gefunden');
 			return Response::redirect('admin/posts');
 		}
 		

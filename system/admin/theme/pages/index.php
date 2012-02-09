@@ -16,6 +16,6 @@
     	    <?php endwhile; ?>
     	</ul>
 	<?php else: ?>
-    	<p>No pages just yet. Why not <a href="<?php echo base_url('admin/pages/add'); ?>">write a new one</a>?</p>
+    	<p>Keine Seiten geschrieben. Das lässt<a href="<?php echo base_url('admin/pages/add'); ?>">sich ändern</a></p>
 	<?php endif; ?>
 </section>

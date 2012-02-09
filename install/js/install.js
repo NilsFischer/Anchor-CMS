@@ -35,7 +35,7 @@ $(function() {
 		$('#diagnose').animate({'opacity': 1});
 
 		if(data == 'good') {
-			notes.show().append('<p class="success">&#10003; Database test successful.</p>').fadeIn();
+			notes.show().append('<p class="success">&#10003; Datenbanktest war erfolgreich.</p>').fadeIn();
 		} else {
 			notes.show().append('<p class="error">' + data + '</p>').fadeIn();
 		}
@@ -60,8 +60,8 @@ $(function() {
 			var content = $('.content');
 			
 			content.animate({'opacity': 0}, function() {
-				var html = '<h2>Thanks for installing!</h2><p>We created an account for you.<br>The username is <b>admin</b>, and the password is <strong>' + data.password + '</strong>.</p>';
-				html += '<p><a href="../" class="button" style="float: none; display: inline-block;">Continue to your site.</a></p>';
+				var html = '<h2>Danke für die Installation!</h2><p>Wir haben einen Account für dich erstellt.<br>Der Benutzername ist <b>admin</b>, und das Passwort ist <strong>' + data.password + '</strong>.</p>';
+				html += '<p><a href="../" class="button" style="float: none; display: inline-block;">Weiter zur Seite.</a></p>';
 				content.html(html).animate({'opacity': 1});
 			});
 		} else {

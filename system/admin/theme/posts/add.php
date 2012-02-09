@@ -8,69 +8,69 @@
 	<form method="post" action="<?php echo current_url(); ?>" novalidate>
 		<fieldset>
 			<p>
-    			<label for="title">Title:</label>
+    			<label for="title">Titel:</label>
     			<input id="title" name="title" value="<?php echo Input::post('title'); ?>">
     			
-    			<em>Your post&rsquo;s title.</em>
+    			<em>Dein Beitragstitel.</em>
     		</p>
 			
 			<p>
 			    <label for="slug">Slug:</label>
 			    <input id="slug" autocomplete="off" name="slug" value="<?php echo Input::post('slug'); ?>">
 			    
-			    <em>The slug for your post (<code><?php echo $_SERVER['HTTP_HOST']; ?>/posts/<span id="output">slug</span></code>).</em>
+			    <em>Der "Slug" für deinen beitrag (<code><?php echo $_SERVER['HTTP_HOST']; ?>/posts/<span id="output">slug</span></code>).</em>
 			</p>
 			
             <p>
-                <label for="description">Description:</label>
+                <label for="description">Beschreibung:</label>
                 <textarea id="description" name="description"><?php echo Input::post('description'); ?></textarea>
                 
-                <em>A brief outline of what your post is about. Used in the post introduction, RSS feed, and <code>&lt;meta name="description" /&gt;</code>.</em>
+                <em>Eine kompakte Zusammenfassung des Beitrags. Used in the post introduction, RSS feed, and <code>&lt;meta name="description" /&gt;</code>.</em>
             </p>
             
 			<p>
-			    <label for="html">Content:</label>
+			    <label for="html">Inhalt:</label>
 			    <textarea id="html" name="html"><?php echo Input::post('html'); ?></textarea>
 			    
-			    <em>Your post's main content. Enjoys a healthy dose of valid HTML.</em>
+			    <em>Der eigentliche Inhalt des Beitrags. Freut sich über eine kräftige Dosis HTML.</em>
 			</p>
 			
 			<p>
 			    <label>Status:</label>
     			<select id="status" name="status">
-    				<?php foreach(array('draft', 'archived', 'published') as $status): ?>
+    				<?php foreach(array('Vorlage', 'Archiviert', 'Publiziert') as $status): ?>
     				<option value="<?php echo $status; ?>" <?php if(Input::post('status') == $status) echo 'selected'; ?>>
     					<?php echo ucwords($status); ?>
     				</option>
     				<?php endforeach; ?>
     			</select>
     			
-    			<em>Statuses: live (published), pending (draft), or hidden (archived).</em>
+    			<em>Stadien: Publiziert (Ansehbar), Vorlage (Nicht fertig), oder Archiviert (Versteckt).</em>
 			</p>
 		</fieldset>
 		
 		<fieldset>
-		    <legend>Customise</legend>
-		    <em>Here, you can customise your posts. This section is optional.</em>
+		    <legend>Modifizieren</legend>
+		    <em>Hier kannst du deinen Post modifiezieren. Dies ist jedoch optional.</em>
 		    
 		    <p>
-		        <label for="css">Custom CSS:</label>
+		        <label for="css">Eigenes CSS:</label>
 		        <textarea id="css" name="css"><?php echo Input::post('css'); ?></textarea>
 		        
-		        <em>Custom CSS. Will be wrapped in a <code>&lt;style&gt;</code> block.</em>
+		        <em>Spezielles CSS. Wird in einem <code>&lt;style&gt;</code> Block verpackt.</em>
 		    </p>
 
             <p>
-                <label for="js">Custom JS:</label>
+                <label for="js">Eigenes JS:</label>
                 <textarea id="js" name="js"><?php echo Input::post('js'); ?></textarea>
                 
-                <em>Custom Javascript. Will be wrapped in a <code>&lt;script&gt;</code> block.</em>
+                <em>Spezielles Javascript. Wird in einem<code>&lt;script&gt;</code> Block verpackt.</em>
             </p>
 		</fieldset>
 		
 		<fieldset>
-		    <legend>Custom fields</legend>
-		    <em>Create custom fields here.</em>
+		    <legend>Eigene Felder</legend>
+		    <em>Erstelle dir eigene Felder.</em>
 
 			<div id="fields">
 				<!-- Re-Populate post data -->
@@ -85,9 +85,9 @@
 		</fieldset>
 			
 		<p class="buttons">
-			<button type="submit">Create</button>
-			<button id="create" type="button">Create a custom field</button>
-			<a href="<?php echo base_url('admin/posts'); ?>">Return to posts</a>
+			<button type="submit">Erstellen</button>
+			<button id="create" type="button">Erstell ein eigenes Feld</button>
+			<a href="<?php echo base_url('admin/posts'); ?>">Kehre zu den Beiträgen zurück</a>
 		</p>
 	</form>
 

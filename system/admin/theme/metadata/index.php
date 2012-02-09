@@ -7,22 +7,22 @@
 	<form method="post" action="<?php echo current_url(); ?>" novalidate>
 		<fieldset>
 			<p>
-    			<label for="sitename">Site name:</label>
+    			<label for="sitename">Seiten/Blogname:</label>
     			<input id="sitename" name="sitename" value="<?php echo Input::post('name', site_name()); ?>">
     			
-    			<em>Your site&rsquo;s name.</em>
+    			<em>Der Name deiner Seite und/oder deines Blogs.</em>
     		</p>
 			
 			
 			<p>
-			    <label for="description">Site description:</label>
+			    <label for="description">Seitenbeschreibung:</label>
 			    <textarea id="description" name="description"><?php echo Input::post('description', site_description()); ?></textarea>
 			    
-			    <em>A short paragraph to describe your site.</em>
+			    <em>Worum gehts hier?</em>
 			</p>
 			
 			<p>
-			    <label>Current theme:</label>
+			    <label>Aktuelles Theme:</label>
     			<select id="theme" name="theme">
     				<?php foreach(glob(PATH . 'themes/*') as $theme): ?>
     				<option value="<?php echo replace($theme); ?>"<?php if(Input::post('theme', current_theme()) == replace($theme)) echo 'selected'; ?>>
@@ -31,19 +31,19 @@
     				<?php endforeach; ?>
     			</select>
     			
-    			<em>Your current theme.</em>
+    			<em>Dein aktuell ausgwähltes Theme (bestimmt das Aussehen).</em>
 			</p>
 			
 			<p>
 				<label for="twitter">Twitter:</label>
 				<input id="twitter" name="twitter" value="<?php echo Input::post('twitter', twitter_account()); ?>">
 				
-				<em>Your twitter account. Displayed as @<span id="output"><?php echo twitter_account(); ?></span>.</em>
+				<em>Dein Twitter Account. So wirds aussehen: @<span id="output"><?php echo twitter_account(); ?></span>.</em>
 			</p>
 		</fieldset>
 			
 		<p class="buttons">
-			<button name="save" type="submit">Save changes</button>
+			<button name="save" type="submit">Änderungen speichern</button>
 		</p>
 	</form>
 

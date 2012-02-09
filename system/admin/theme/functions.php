@@ -426,10 +426,10 @@ function admin_menu() {
     $prefix = Config::get('application.admin_folder');
 
 	$pages = array(
-		'Posts' => $prefix . '/posts', 
-		'Pages' => $prefix . '/pages',
-		'Users' => $prefix . '/users',
-		'Metadata' => $prefix . '/metadata'
+		'Beiträge' => $prefix . '/posts', 
+		'Seiten' => $prefix . '/pages',
+		'Benutzer' => $prefix . '/users',
+		'Einstellungen' => $prefix . '/metadata'
 	);
 	
 	return $pages;
@@ -519,17 +519,17 @@ function error_check() {
 
     //  Check the uploads folder is writable.
     if(is_writable(PATH . 'uploads') === false) {
-        $errors[] = 'The <code>uploads</code> folder is not writable.';
+        $errors[] = 'Der <code>Upload</code> Ordner ist nicht beschreibbar.';
     }
     
     //  Check for older versions
     if(version_compare(ANCHOR_VERSION, latest_version(), '<')) {
-        $errors[] = 'Your version of Anchor is out of date. Please <a href="http://anchorcms.com">download the latest version</a>.';
+        $errors[] = 'Deine Anchor Version ist verarlet. Bitte <a href="http://anchorcms.com">lade die neue Version runter</a>.';
     }
     
     //  And I can't think of anything else.
     if(1 !== 1) {
-        $errors[] = 'PHP can&rsquo;t do math properly. The sky is falling. Get inside, quick!';
+        $errors[] = 'PHP kann nicht richtig rechnen. Der Himmel fällt runter. Geh nach Hause, schnell!';
     }
     
     // outcome

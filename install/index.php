@@ -24,20 +24,20 @@
     	
     	// php
     	if(version_compare(PHP_VERSION, '5.3.0', '<')) {
-    		$compat[] = 'Anchor requires PHP 5.3 or newer.<br><em>Your current environment is running PHP ' . PHP_VERSION . '</em>';
+    		$compat[] = 'Anchor benötigt PHP 5.3 oder neuer.<br><em>Im Moment läuft bei dir PHP ' . PHP_VERSION . '</em>';
     	}
     	
     	// curl
     	if(function_exists('curl_init') === false) {
-    		$compat[] = 'Anchor requires PHP cURL to be installed and enabled';
+    		$compat[] = 'Anchor benötigt eine installierte und aktiverite Version von PHP cURL';
     	}
     	
     	// PDO
     	if(class_exists('PDO') === false) {
-    		$compat[] = 'Anchor requires PDO (PHP Data Objects)';
+    		$compat[] = 'Anchor benötigt PDO (PHP Data Objects)';
     	} else {
     		if(in_array('mysql', PDO::getAvailableDrivers()) === false) {
-    			$compat[] = 'Anchor requires the MySQL PDO Driver';
+    			$compat[] = 'Anchor benötigt den MySQL PDO Driver';
     		}
     	}
 
@@ -48,7 +48,7 @@
     	<div class="content">
     		<h2>Woops.</h2>
     		
-    		<p>Anchor is missing some requirements:</p>
+    		<p>Für Anchor fehlen ein paar Vorraussetzungen:</p>
     		
     		<ul style="padding-bottom: 1em;">
     			<?php foreach($compat as $item): ?>
@@ -56,7 +56,7 @@
     			<?php endforeach; ?>
     		</ul>
     		
-    		<p><a href="." class="button" style="float: none; display: inline-block;">Ok, I've fixed these, run the installer.</a></p>
+    		<p><a href="." class="button" style="float: none; display: inline-block;">Ok, ich habe es behoben, lasst die Spiele beginnen.</a></p>
     	</div>
     
     	<?php elseif(file_exists('../config.php')): ?>
@@ -64,62 +64,59 @@
     	<div class="content">
     		<h2>Woops.</h2>
     		
-    		<p>Anchor is already installed. You should really delete this folder!</p>
+    		<p>Anchor ist bereits installiert. Du solltest diesen Ordner wirklich löschen!</p>
     		
-    		<p><a href="../" class="button" style="float: none; display: inline-block;">Return to the main site.</a></p>
+    		<p><a href="../" class="button" style="float: none; display: inline-block;">Zurück zur Hauptseite.</a></p>
     	</div>
     	
     	<?php else: ?>
     
-        <p class="nojs error">You will need Javascript enabled for this installation. <em>Sorry :(</em></p>
+        <p class="nojs error">Du musst für diese Installation JavaScript aktivieren. <em>Sorry :(</em></p>
 
         <div class="content">
-            <h2>Welcome to Anchor.</h2>
+            <h2>Willkommen zu Anchor.</h2>
 
-            <p>If you were looking for a truly lightweight blogging experience, you&rsquo;ve 
-            found the right place. Simply fill in the details below, and you&rsquo;ll have your 
-            new blog set up in no time.</p>
+            <p>Wenn du dich schon länger nach einem leichten, einfachen Bloggingsystem umgesehen hast, hast du es gefunden. Füll einfach die Daten aus und ZACK!, schon hast du deinen neuen Blog.</p>
             
-            <small>If you want a more custom install, feel free to edit <code>config.default.php</code> 
-            (before or after this installation, it doesn't really matter, as long as you rename it to 
-            <code>config.php</code>).</small>
+            <small>Wenn du eine etwas andere, eigene Installation willst, bearbeite einfach <code>config.default.php</code> 
+            (Ob vor oder nach dieser Installation ist eigentlich egal, solange du es <code>config.php</code> nennst).</small>
             
             <div class="notes"></div>
             
             <form method="get" novalidate>
                 <fieldset id="diagnose">
-                    <legend>Your database details</legend>
+                    <legend>Deine Datenbankeinstellungen</legend>
                     
                     <p>
-                        <label for="host">Your database host:</label>
+                        <label for="host">Dein Datenbankhost:</label>
                         <input id="host" name="host" placeholder="localhost">
                     </p>
                     <p>
-                        <label for="user">Your database username:</label>
+                        <label for="user">Dein Datenbankbenutzername:</label>
                         <input id="user" autocapitalize="off" name="user" placeholder="root">
                     </p>
                     <p>
-                        <label for="pass">Your database password:</label>
+                        <label for="pass">Dein Passwort:</label>
                         <input id="pass" autocapitalize="off" name="pass" placeholder="password">
                     </p>
                     <p>
-                        <label for="db">Your database name:</label>
+                        <label for="db">Dein Datenbankname:</label>
                         <input id="db" autocapitalize="off" name="db" placeholder="anchor">
                     </p>
                     
-                    <a href="#check" class="button">Check database details</a>
+                    <a href="#check" class="button">Check die Datenbankeinstellungen ab, Alter!</a>
                 </fieldset>
                 
                 <fieldset>
-                    <legend>About your site</legend>
+                    <legend>Über deine Seite</legend>
                     
                     <p>
-                        <label for="name">Site name:</label>
+                        <label for="name">Seitenname:</label>
                         <input id="name" name="name" placeholder="My awesome Anchor site">
                     </p>
                     
                     <p>
-                        <label for="description">Site description:</label>
+                        <label for="description">Beschreibung:</label>
                         <textarea id="description" name="description"></textarea>
                     </p>
 
@@ -135,29 +132,29 @@
                     </p>
                     
                     <p>
-                        <label for="email">Your Email Address:</label>
+                        <label for="email">Deine Email-Adresse:</label>
                         <input id="email" name="email">
                     </p>
                     
                     <p>
-                        <label for="path">Site path:</label>
+                        <label for="path">Der Pfad zu deiner Seite:</label>
                         <input id="path" name="path" value="<?php echo dirname(dirname($_SERVER['SCRIPT_NAME'])); ?>">
                     </p>
                     
                     <p>
                         <label><input type="checkbox" name="clean_urls" value="1">
-                        Use clean urls</label> (Apache mod_rewrite is enabled)
+                        Benutze saubere URLs</label> (Apache mod_rewrite ist aktiviert)
                     </p>
                     
                 </fieldset>
                 
                 <br style="clear: both;">
-                <button type="submit">Install Anchor</button>
+                <button type="submit">Installier Anchor</button>
             </form>
         </div>
         
         <?php endif; ?>
         
-        <p class="footer">Made with love by <a href="//twitter.com/visualidiot">Visual Idiot</a>. If it's not working, send him a message on Twitter. He'll reply.</p>
+        <p class="footer">Mit viel Liebe von <a href="//twitter.com/visualidiot">Visual Idiot</a> gemacht. Sollte es nicht klappen, sende ihm eine (englische) Nachricht auf Twitter (Solltest du nicht gut Englisch können, gibt es noch Google Translate). Er wird antworten.</p>
     </body>
 </html>

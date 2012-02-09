@@ -18,7 +18,7 @@ class Pages_controller {
 	public function edit($id) {
 		// find page
 		if(($page = Pages::find(array('id' => $id))) === false) {
-			Notifications::set('notice', 'Page not found');
+			Notifications::set('notice', 'Seite nicht gefunden');
 			return Response::redirect('admin/pages');
 		}
 		

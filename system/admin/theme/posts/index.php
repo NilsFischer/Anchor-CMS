@@ -18,6 +18,6 @@
 	    <?php endwhile; ?>
 	</ul>
 	<?php else: ?>
-	<p>No posts just yet. Why not <a href="<?php echo base_url('admin/posts/add'); ?>">write a new one</a>?</p>
+	<p>Noch keine Beiträge vorhanden. Warum <a href="<?php echo base_url('admin/posts/add'); ?>">schreibst du nicht einen</a>?</p>
 	<?php endif; ?>
 </section>

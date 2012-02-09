@@ -47,11 +47,11 @@
 	};
 
 	var show_add_field = function() {
-		var html = '<fieldset><legend>Custom Field</legend><em>Please enter the label and the key for your field.</em>';
+		var html = '<fieldset><legend>Custom Field</legend><em>Bitte gib eine Beschreibung und einen Schlüssel für das Feld.</em>';
 		html +='<p><label>Label</label><input name="field_label" type="text"></p>';
 		html +='<p><label>Key</label><input name="field_key" type="text"></p>';
 		html += '</fieldset>';
-		html +='<p class="buttons"><button name="create" type="button">Create</button> <a href="#close">Close</a></p>';
+		html +='<p class="buttons"><button name="create" type="button">Erstellen</button> <a href="#close">Close</a></p>';
 		
 		var box = new Element('div', {'class': 'popup_wrapper', 'html': html});
 		

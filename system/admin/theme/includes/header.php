@@ -25,7 +25,7 @@
 				</ul>
 			</nav>
 
-			<p>Logged in as <strong><?php echo user_authed_realname(); ?></strong>. <a href="<?php echo base_url('admin/users/logout'); ?>">Logout</a></li>
+			<p>Eingeloggt als <strong><?php echo user_authed_realname(); ?></strong>. <a href="<?php echo base_url('admin/users/logout'); ?>">Abmelden</a></li>
 			<?php endif; ?>
 		</header>
 

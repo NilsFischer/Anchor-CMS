@@ -8,21 +8,21 @@
 		<fieldset>
 			
 			<p>
-			    <label for="user">Username:</label>
+			    <label for="user">Benutzername:</label>
 			    <input autocapitalize="off" name="user" id="user" value="<?php echo Input::post('user'); ?>">
 			</p>
 			
 			<p>
-    			<label for="pass">Password:</label>
+    			<label for="pass">Passwort:</label>
     			<input type="password" name="pass" id="pass">
     			
-    			<em>If you&rsquo;ve forgotten your password, contact the site admin.</em>
+    			<em>Solltest du dein Passwort vergessen haben, wende dich an den Seitenbetreiber.</em>
 			</p>
 
 			<p class="buttons">
 			    <button type="submit">Login</button>
-			    <a href="<?php echo base_url('admin/users/amnesia'); ?>">Help, I've forgotten my password.</a>
-			    <a href="<?php echo base_url(); ?>">Back to <?php echo site_name(); ?></a>
+			    <a href="<?php echo base_url('admin/users/amnesia'); ?>">Hilfe! Ich habe mein Passwort vergessen.</a>
+			    <a href="<?php echo base_url(); ?>">Zurück zu <?php echo site_name(); ?></a>
 			</p>
 		</fieldset>
 	</form>

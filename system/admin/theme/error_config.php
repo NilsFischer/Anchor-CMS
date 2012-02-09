@@ -6,9 +6,9 @@
 	</head>
 	<body>
 		<div class="content">
-			<p>It looks like the config file is missing or unreadable.</p>
+			<p>Anscheinend ist das Konfigurationsfile (config.php) nicht vorhanden oder lesbar.</p>
 
-			<p><a href="./install">Run the installer</a></p>
+			<p><a href="./install">Installier Anchor</a></p>
 		</div>
 	</body>
 </html>

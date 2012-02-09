@@ -16,7 +16,7 @@ if(empty($post['db'])) {
 }
 
 if(empty($post['host'])) {
-	$errors[] = 'Bitte trage einen anderen, Host für die Datenbank ein.';
+	$errors[] = 'Bitte trage einen anderen Host für die Datenbank ein.';
 }
 
 // test database

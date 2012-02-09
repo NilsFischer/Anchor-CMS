@@ -32,7 +32,7 @@ class Users_controller {
 	public function reset($hash) {
 		// find user
 		if(($user = Users::find(array('hash' => $hash))) === false) {
-			Notifications::set('error', 'User not found');
+			Notifications::set('error', 'Benutzer nicht gefunden');
 			return Response::redirect('admin/users');
 		}
 		
@@ -60,7 +60,7 @@ class Users_controller {
 	public function edit($id) {
 		// find user
 		if(($user = Users::find(array('id' => $id))) === false) {
-			Notifications::set('notice', 'User not found');
+			Notifications::set('notice', 'Benutzer nicht gefunden');
 			return Response::redirect('admin/users');
 		}
 		
