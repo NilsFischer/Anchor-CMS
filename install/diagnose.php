@@ -12,11 +12,11 @@ foreach($fields as $field) {
 }
 
 if(empty($post['db'])) {
-	$errors[] = 'Please specify a database name';
+	$errors[] = 'Bitte ändere den Namen der Datenbank.';
 }
 
 if(empty($post['host'])) {
-	$errors[] = 'Please specify a database host';
+	$errors[] = 'Bitte trage einen anderen, Host für die Datenbank ein.';
 }
 
 // test database
@@ -34,7 +34,7 @@ header('Content-Type: text/plain');
 
 if(empty($errors)) {
 	//no errors we're all gooood
-	echo 'good';
+	echo 'Gut';
 } else {
 	echo implode(', ', $errors);
 }

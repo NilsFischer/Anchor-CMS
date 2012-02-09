@@ -53,7 +53,7 @@ class Pages {
 		$sql = "delete from pages where id = ?";
 		Db::query($sql, array($id));
 		
-		Notifications::set('success', 'Your page has been deleted');
+		Notifications::set('success', 'Deine Seite wurde gelöscht');
 		
 		return true;
 	}
@@ -71,11 +71,11 @@ class Pages {
 		}
 		
 		if(empty($post['name'])) {
-			$errors[] = 'Please enter a name';
+			$errors[] = 'Bitte gib einen Namen an';
 		}
 		
 		if(empty($post['title'])) {
-			$errors[] = 'Please enter a title';
+			$errors[] = 'Bitte denk dir einen denkwürdigen Titel aus';
 		}
 		
 		if(count($errors)) {
@@ -100,7 +100,7 @@ class Pages {
 		
 		Db::query($sql, $args);
 		
-		Notifications::set('success', 'Your page has been updated');
+		Notifications::set('success', 'Deine Seite wurde bearbeitet');
 		
 		return true;
 	}
@@ -110,11 +110,11 @@ class Pages {
 		$errors = array();
 		
 		if(empty($post['name'])) {
-			$errors[] = 'Please enter a name';
+			$errors[] = 'Bitte gib einen Namen an';
 		}
 		
 		if(empty($post['title'])) {
-			$errors[] = 'Please enter a title';
+			$errors[] = 'Bitte gib einen Titel an';
 		}
 		
 		if(count($errors)) {
@@ -140,7 +140,7 @@ class Pages {
 		
 		Db::query($sql, $args);
 		
-		Notifications::set('success', 'Your new page has been added');
+		Notifications::set('success', 'Deine neue Seite wurde hinzugefügt.');
 		
 		return true;
 	}

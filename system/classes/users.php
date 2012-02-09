@@ -56,11 +56,11 @@ class Users {
 		$errors = array();
 		
 		if(empty($post['user'])) {
-			$errors[] = 'Please enter your username';
+			$errors[] = 'Bitte gib deinen Benutzernamen an';
 		}
 		
 		if(empty($post['pass'])) {
-			$errors[] = 'Please enter your password';
+			$errors[] = 'Bitte gib dein Passwort ein';
 		}
 
 		if(empty($errors)) {
@@ -95,10 +95,10 @@ class Users {
 		$errors = array();
 
 		if(filter_var($post['email'], FILTER_VALIDATE_EMAIL) === false) {
-			$errors[] = 'Please enter a valid email address';
+			$errors[] = 'Bitte gib eine funktionierende Email-Adresse an.';
 		} else {
 			if(($user = static::find(array('email' => $post['email']))) === false) {
-				$errors[] = 'Account not found';
+				$errors[] = 'Account nicht gefunden.';
 			}
 		}
 		
@@ -113,12 +113,12 @@ class Users {
 		));
 		
 		$subject = '[' . Config::get('metadata.sitename') . '] Password Reset';
-		$plain = 'You have requested to reset your password. To continue follow the link below. ' . $link;
+		$plain = 'Du hast ein neues Passwort angefordert. Um den Prozess abzuschließen, klicke bitte auf den folgenden Link. ' . $link;
 		$headers = array('From' => 'no-reply@' . Input::server('http_host'));
 		
 		Email::send($user->email, $subject, $plain, $headers);
 		
-		Notifications::set('notice', 'We have sent you an email to confirm your password change.');
+		Notifications::set('notice', 'Wir haben dir eine Email zum Passwort zurücksetzten geschickt.');
 		
 		return true;
 	}
@@ -128,7 +128,7 @@ class Users {
 		$errors = array();
 
 		if(empty($post['password'])) {
-			$errors[] = 'Please enter a password';
+			$errors[] = 'Bitte gib ein Passwort an';
 		}
 		
 		if(count($errors)) {
@@ -141,7 +141,7 @@ class Users {
 		$sql = "update users set `password` = ? where id = ?";
 		Db::query($sql, array($password, $id));
 		
-		Notifications::set('success', 'Your new password has been set');
+		Notifications::set('success', 'Dein neues Passwort wurde gespeichert');
 		
 		return true;
 	}
@@ -150,7 +150,7 @@ class Users {
 		$sql = "delete from users where id = ?";
 		Db::query($sql, array($id));
 		
-		Notifications::set('success', 'User has been deleted');
+		Notifications::set('success', 'Benutzer wurde gelöscht');
 		
 		return true;
 	}
@@ -168,19 +168,19 @@ class Users {
 		}
 		
 		if(empty($post['username'])) {
-			$errors[] = 'Please enter a username';
+			$errors[] = 'Bitte gib einen Benutzername an';
 		} else {
 			if(($user = static::find(array('username' => $post['username']))) and $user->id != $id) {
-				$errors[] = 'Username is already being used';
+				$errors[] = 'Benutzername ist schon vergeben';
 			}
 		}
 
 		if(filter_var($post['email'], FILTER_VALIDATE_EMAIL) === false) {
-			$errors[] = 'Please enter a valid email address';
+			$errors[] = 'Bitte gib eine funktionierende Email-Adresse an';
 		}
 
 		if(empty($post['real_name'])) {
-			$errors[] = 'Please enter a display name';
+			$errors[] = 'Bitte gib (d)einen Namen an';
 		}
 		
 		if(strlen($post['password'])) {
@@ -217,7 +217,7 @@ class Users {
 			Session::set('user', static::find(array('id' => $id)));
 		}
 		
-		Notifications::set('success', 'User has been updated');
+		Notifications::set('success', 'Benutzer wurde erfolgreich bearbeitet');
 		
 		return true;
 	}
@@ -227,23 +227,23 @@ class Users {
 		$errors = array();
 		
 		if(empty($post['username'])) {
-			$errors[] = 'Please enter a username';
+			$errors[] = 'Bitte gib einen Benutzername an';
 		} else {
 			if(static::find(array('username' => $post['username']))) {
-				$errors[] = 'Username is already being used';
+				$errors[] = 'Dieser Benutzername ist bereits vergeben';
 			}
 		}
 		
 		if(empty($post['password'])) {
-			$errors[] = 'Please enter a password';
+			$errors[] = 'Bitte gib ein Passwort ein';
 		}
 
 		if(filter_var($post['email'], FILTER_VALIDATE_EMAIL) === false) {
-			$errors[] = 'Please enter a valid email address';
+			$errors[] = 'Bitte gib eine funktionierende Email-Adresse an';
 		}
 
 		if(empty($post['real_name'])) {
-			$errors[] = 'Please enter a display name';
+			$errors[] = 'Bitte gib deinen (realen) Namen ein';
 		}
 		
 		if(count($errors)) {
@@ -271,7 +271,7 @@ class Users {
 		
 		Db::query($sql, $args);
 		
-		Notifications::set('success', 'A new user has been added');
+		Notifications::set('success', 'Ein neuer Benutzer wurde hinzugefügt');
 		
 		return true;
 	}

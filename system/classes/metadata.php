@@ -7,15 +7,15 @@ class Metadata {
 		$errors = array();
 		
 		if(empty($post['sitename'])) {
-			$errors[] = 'You need a site sitename';
+			$errors[] = 'Wie soll die Seite heißen?';
 		}
 		
 		if(empty($post['description'])) {
-			$errors[] = 'You need a site description';
+			$errors[] = 'Du brauchst eine Beschreibung der Seite';
 		}
 		
 		if(empty($post['theme'])) {
-			$errors[] = 'You need a theme';
+			$errors[] = 'Du musst ein Theme auswählen';
 		}
 		
 		if(count($errors)) {
@@ -33,7 +33,7 @@ class Metadata {
 		    DB::query("update meta set `value` = ? where `key` = ?", array($value, $key));
 		}
 				
-		Notifications::set('success', 'Your metadata has been updated');
+		Notifications::set('success', 'Deine Einstellungen wurden erfolgreich bearbeitet');
 		
 		return true;
 	}

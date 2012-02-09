@@ -1,9 +1,8 @@
 
 <section class="content">
-    <h1>Oh no, this page can&rsquo;t be found.</h1>
+    <h1>Oh Nein! Diese Seite konnte leider nicht gefunden werden.</h1>
 
-    <p>Unfortunately, the page at <code><?php echo current_url(); ?></code> 
-    can't be found, but don't give up hope yet! You can always try going back to 
-    the homepage, or searching.</p>
+    <p>Leider konnte die Seite unter <code><?php echo current_url(); ?></code> 
+    nicht gefunden werden. Aber gib die Hoffnung nicht auf! Du kannst immer noch auf die Homepage zurückkehren oder etwas suchen.</p>
 </section>
 

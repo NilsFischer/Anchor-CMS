@@ -9,7 +9,7 @@
 
 function numeral($number) {
 	$test = abs($number) % 10;
-	$ext = ((abs($number) % 100 < 21 and abs($number) % 100 > 4) ? 'th' : (($test < 4) ? ($test < 3) ? ($test < 2) ? ($test < 1) ? 'th' : 'st' : 'nd' : 'rd' : 'th'));
+	$ext = ((abs($number) % 100 < 21 and abs($number) % 100 > 4) ? '.' : (($test < 4) ? ($test < 3) ? ($test < 2) ? ($test < 1) ? '.' : '.' : '.' : '.' : '.'));
 	return $number . $ext; 
 }
 
@@ -25,17 +25,17 @@ function relative_time($date) {
     $elapsed = time() - $date;
     
     if($elapsed <= 1) {
-        return 'Just now';
+        return 'Gerade eben';
     }
     
     $times = array(
-        31104000 => 'year',
-        2592000 => 'month',
-        604800 => 'week',
-        86400 => 'day',
-        3600 => 'hour',
-        60 => 'minute',
-        1 => 'second'
+        31104000 => 'Jahr',
+        2592000 => 'Monat',
+        604800 => 'Woche',
+        86400 => 'Tag',
+        3600 => 'Stunde',
+        60 => 'Minute',
+        1 => 'Sekunde'
     );
     
     foreach($times as $seconds => $title) {
@@ -43,7 +43,7 @@ function relative_time($date) {
         
         if($rounded > 1) {
             $rounded = round($rounded);
-            return $rounded . ' ' . pluralise($rounded, $title) . ' ago';
+            return $rounded . ' ' . pluralise($rounded, $title) . ' alt';
         }
     }
 }

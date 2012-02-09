@@ -8,6 +8,6 @@
 </section>
 
 <section class="footnote">
-	<p>This article is my <?php echo numeral(article_id() + 1); ?> oldest. It is <?php echo count_words(article_html()); ?> words long. <?php echo article_custom_field('attribution'); ?></p>
+	<p>Dieser Artikel ist mein <?php echo numeral(article_id() + 1); ?> Ältester. Er ist <?php echo count_words(article_html()); ?> Wörter lang. <?php echo article_custom_field('attribution'); ?></p>
 </section>
 

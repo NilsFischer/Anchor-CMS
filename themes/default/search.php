@@ -1,9 +1,9 @@
 <section class="content">
     
-    <h1>You searched for &ldquo;<?php echo search_term(); ?>&rdquo;.</h1>
+    <h1>Deine Suche nach &ldquo;<?php echo search_term(); ?>&rdquo;.</h1>
     
     <?php if(has_search_results()): ?>
-        <p>We found <?php echo total_search_results(); ?> <?php echo pluralise(total_search_results(), 'result'); ?> for &ldquo;<?php echo search_term(); ?>&rdquo;</p>
+        <p>Wir fanden <?php echo total_search_results(); ?> <?php echo pluralise(total_search_results(), 'result'); ?> für &ldquo;<?php echo search_term(); ?>&rdquo;</p>
         <ul class="items wrap">
 			<?php while(search_results()): ?>
 			<li>
@@ -15,7 +15,7 @@
 			<?php endwhile; ?>
         </ul>
     <?php else: ?>
-        <p>Unfortunately, there's no results for &ldquo;<?php echo search_term(); ?>&rdquo;. Did you spell everything correctly?</p>
+        <p>Leider gab es keine Ergebnisse für &ldquo;<?php echo search_term(); ?>&rdquo;. Hast du alles richtig geschrieben?</p>
     <?php endif; ?>
     
 </section>

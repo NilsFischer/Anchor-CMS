@@ -10,5 +10,5 @@
     	<?php endwhile; ?>
     </ul>
 <?php else: ?>
-    <p>Looks like you have some writing to do!</p>
+    <p>Du müsstest schon noch ein bisschen was schreiben!</p>
 <?php endif; ?>

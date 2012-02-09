@@ -196,7 +196,7 @@ class Posts {
 		$sql = "delete from posts where posts.id = ?";
 		Db::query($sql, array($id));
 		
-		Notifications::set('success', 'Your post has been deleted');
+		Notifications::set('success', 'Dein Beitrag wurde gelöscht.');
 		
 		return true;
 	}
@@ -215,15 +215,15 @@ class Posts {
 		}
 		
 		if(empty($post['title'])) {
-			$errors[] = 'Please enter a title';
+			$errors[] = 'Bitte schreib einen Titel ins Titelfeld';
 		}
 		
 		if(empty($post['description'])) {
-			$errors[] = 'Please enter a description';
+			$errors[] = 'Bitte schreibe eine Beschreibung';
 		}
 		
 		if(empty($post['html'])) {
-			$errors[] = 'Please enter your html';
+			$errors[] = 'Bitte füge deinen HTML-Code ein.';
 		}
 		
 		if(count($errors)) {
@@ -263,7 +263,7 @@ class Posts {
 		Db::query($sql, $args);
 		
 		$post = static::extend(static::find(array('id' => $id)));
-		Notifications::set('success', 'Your post has been updated. <a href="' . $post->url . '">View post on your site</a>');
+		Notifications::set('success', 'Dein Beitrag wurde bearbeitet. <a href="' . $post->url . '">Sieh dir den Beitrag auf der Seite an.</a>');
 		
 		return true;
 	}
@@ -274,15 +274,15 @@ class Posts {
 		$errors = array();
 		
 		if(empty($post['title'])) {
-			$errors[] = 'Please enter a title';
+			$errors[] = 'Bitte benenne deinen Beitrag (Titel)';
 		}
 		
 		if(empty($post['description'])) {
-			$errors[] = 'Please enter a description';
+			$errors[] = 'Bitte gib eine Beschreibung an.';
 		}
 		
 		if(empty($post['html'])) {
-			$errors[] = 'Please enter your html';
+			$errors[] = 'Bitte gib deinen HTML-Code ein';
 		}
 		
 		if(count($errors)) {
@@ -329,7 +329,7 @@ class Posts {
 		
 		Db::query($sql, $args);
 		
-		Notifications::set('success', 'Your new post has been added');
+		Notifications::set('success', 'Dein neuer Beitrag wurde hinzugefügt.');
 		
 		return true;
 	}
